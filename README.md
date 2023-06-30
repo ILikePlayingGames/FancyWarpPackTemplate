@@ -73,7 +73,15 @@ Resource pack template for my Fancy Warp Menu mod
         // Warp button texture height as a percentage of warp button texture width, expressed as a decimal
         // Calculated by dividing texture height in pixels by texture width in pixels
         "heightPercentage": 1.2
-      }
+      },
+      // Names of the warp command and its variants, used for the reminders feature
+      // You shouldn't have to change these
+      "warpCommandVariants": [
+         "warp",
+         "is",
+         "warpforge",
+         "savethejerrys"
+      ]
     }
     ```
 3. Add your textures at the texture paths you configured above
