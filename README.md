@@ -14,25 +14,18 @@ Resource pack template for my Fancy Warp Menu mod
           // Name label to be shown below the island
           "name": "Hub",
           // Path to the island's texture (relative to the folder pack.mcmeta is in
-          "texturePath": "textures/gui/islands/The Hub.png",
-          // Grid point to draw the left side of the island at (0-32)
+          "texturePath": "textures/gui/islands/Hub.png",
+          // Grid point to draw the left side of the island at (0-64)
           // 0 is screen left edge, 32 is screen right edge
-          "gridX": 10,
-          // Grid point to draw the top of the island at (0-18)
+          "gridX": 19,
+          // Grid point to draw the top of the island at (0-36)
           // 0 is screen top edge, 18 is screen bottom edge
-          "gridY": 6,
+          "gridY": 19,
+          // Z level to render the button at (0-9)
+          "zLevel": 0,
           // Island texture width as a percentage of screen width, expressed as a decimal
           // 0.3 means 30% of screen width and 1 means 100% for example
           "widthPercentage": 0.3,
-          // Island texture height as a percentage of island texture width, expressed as a decimal
-          // Calculated by dividing island texture height in pixels by island texture width in pixels 
-          "heightPercentage": 0.5121412803532,
-          // Horizontal texture offset (u)
-          // Number of pixels to move to the right before reaching the start of the texture
-          "textureXPosition": 0,
-          // Vertical texture offset (v)
-          // Number of pixels to move down before reaching the start of the texture
-          "textureYPosition": 60,
           // Add your warps in this list
           "warpList": [
             {
@@ -45,7 +38,9 @@ Resource pack template for my Fancy Warp Menu mod
               // The island is divided into 40 grid lines where 0 is the island's left edge and 40 is the right edge
               "gridX": 29,
               // Grid point to draw the top of the warp at, also 0-40
-              "gridY": 6
+              "gridY": 6,
+              // Don't display the warp name below the warp (optional, false if not provided)
+              "hideDisplayName": false
             }
           ]
         }
@@ -77,10 +72,11 @@ Resource pack template for my Fancy Warp Menu mod
       // Names of the warp command and its variants, used for the reminders feature
       // You shouldn't have to change these
       "warpCommandVariants": [
-         "warp",
-         "is",
-         "warpforge",
-         "savethejerrys"
+          "warp",
+          "is",
+          "hub",
+          "warpforge",
+          "savethejerrys"
       ]
     }
     ```
