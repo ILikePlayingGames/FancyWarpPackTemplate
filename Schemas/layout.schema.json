@@ -1,0 +1,140 @@
+{
+  "$id": "https://tirelesstraveler.ca/schemas/layout.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fancy Warp Menu Layout",
+  "description": "A graphical user interface layout for the Fancy Warp Menu mod",
+  "type": "object",
+  "properties": {
+    "islandList": {
+      "type": "array",
+      "description": "List of islands to draw on the warp menu",
+      "items": {
+        "type": "object",
+        "description": "An island to be drawn on the Fancy Warp Menu",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Display name of the island"
+          },
+          "texturePath": {
+            "type": "string",
+            "description": "Path to the island texture (relative to the directory \"pack.mcmeta\" is in)"
+          },
+          "gridX": {
+            "type": "integer",
+            "description": "Grid x-coordinate to render the left edge of the island texture at",
+            "minimum": 0,
+            "maximum": 64
+          },
+          "gridY": {
+            "type": "integer",
+            "description": "Grid y-coordinate to render the top edge of the island texture at",
+            "minimum": 0,
+            "maximum": 36
+          },
+          "zLevel": {
+            "type": "integer",
+            "description": "Z coordinate to render the island texture at (higher is front)",
+            "minimum": 0,
+            "maximum": 9
+          },
+          "widthPercentage": {
+            "type": "number",
+            "description": "Percentage of screen width the island texture should take up, expressed as a decimal",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "warpList": {
+            "type": "array",
+            "description": "List of warps to draw on top of the island",
+            "items": {
+              "type": "object",
+              "properties": {
+                "displayName": {
+                  "type": "string",
+                  "description": "Warp name displayed on the warp menu"
+                },
+                "commandName": {
+                  "type": "string",
+                  "description": "Name of the warp as used in the /warp command"
+                },
+                "gridX": {
+                  "type": "integer",
+                  "description": "Grid x-coordinate to render the left edge of the warp icon texture at"
+                },
+                "gridY": {
+                  "type": "integer",
+                  "description": "Grid x-coordinate to render the left edge of the warp icon texture at"
+                },
+                "hideButton": {
+                  "type": "boolean",
+                  "description": "Don't draw a button for this warp",
+                  "default": false
+                },
+                "hideDisplayName": {
+                  "type": "boolean",
+                  "description": "Don't draw the display name for this warp",
+                  "default": false
+                },
+                "requiresSpecialGameMode": {
+                  "type": "boolean",
+                  "description": "Warps usable only during special game modes such as Bingo",
+                  "default": false
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "warpIcon": {
+      "type": "object",
+      "properties": {
+        "texturePath": {
+          "type": "string",
+          "description": "Path to the warp button texture, relative to \"assets/fancywarpmenu\"\nE.g. \"textures/gui/Portal.png\""
+        },
+        "widthPercentage": {
+          "type": "number",
+          "description": "Warp button texture width as a percentage of screen width, expressed as a decimal"
+        }
+      }
+    },
+    "configButton": {
+      "type": "object",
+      "description": "Configures the size and position of the button to access Fancy Warp Menu settings",
+      "properties": {
+        "gridX": {
+          "type": "integer",
+          "description": "Grid x-coordinate to render the left edge of the config button icon texture at"
+        },
+        "gridY": {
+          "type": "integer",
+          "description": "Grid x-coordinate to render the left edge of the config button icon texture at"
+        },
+        "widthPercentage": {
+          "type": "number",
+          "description": "Config button texture width as a percentage of screen width, expressed as a decimal"
+        }
+      }
+    },
+    "regularWarpMenuButton": {
+      "type": "object",
+      "description": "Configures the size and position of the button to access the regular warp menu",
+      "properties": {
+        "gridX": {
+          "type": "integer",
+          "description": "Grid x-coordinate to render the left edge of the regular warp menu button icon texture at"
+        },
+        "gridY": {
+          "type": "integer",
+          "description": "Grid x-coordinate to render the left edge of the regular warp menu button icon texture at"
+        },
+        "widthPercentage": {
+          "type": "number",
+          "description": "regular warp menu button texture width as a percentage of screen width, expressed as a decimal"
+        }
+      }
+    }
+  }
+}

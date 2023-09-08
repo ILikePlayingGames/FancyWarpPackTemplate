@@ -1,0 +1,63 @@
+{
+  "$id": "https://tirelesstraveler.ca/schemas/skyBlockConstants.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fancy Warp Menu SkyBlock Constants",
+  "description": "Constant values from Hypixel SkyBlock used by the Fancy Warp Menu",
+  "type": "object",
+  "properties": {
+    "warpMessages": {
+      "type": "object",
+      "description": "Chat messages Hypixel sends in response to a warp command execution",
+      "properties": {
+        "warpSuccessMessages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "description": "Chat messages Hypixel sends upon a successful warp"
+          }
+        },
+        "warpFailMessages": {
+          "type": "object",
+          "description": "Chat messages Hypixel sends upon a failed warp, mapped to translation keys that correspond to messages to be displayed in the Fancy Warp Menu",
+          "minProperties": 1,
+          "propertyNames": {
+            "pattern": "^.+$",
+            "examples": [
+              "Unknown destination! Check the Fast Travel menu to view options!"
+            ]
+          },
+          "examples": [
+            "fancywarpmenu.errors.unknownDestination"
+          ]
+        },
+        "warpCommandVariants": {
+          "type": "array",
+          "description": "Warp command variants to detect for the reminder to use Fancy Warp Menu feature",
+          "items": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "the warp command excluding the /",
+                "examples": [
+                  "warp",
+                  "travel",
+                  "savethejerrys"
+                ]
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of this warp command\nALIAS: An alias of /warp\nWARP: A command that links to a specific warp",
+                "enum": [
+                  "ALIAS",
+                  "WARP"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

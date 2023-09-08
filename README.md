@@ -1,106 +1,48 @@
-# FancyWarpPackTemplate
+# Fancy Warp Pack Template
 Resource pack template for my Fancy Warp Menu mod
 
 -----
 
 # How to Create Your Own Pack
-1. Create a new repository using the button above and checkout to your IDE. Alternatively, you can download this template.
-2. Edit the options in [islands.json](Pack/assets/fancywarpmenu/data/islands.json) to your liking using the explanation of options below.
-    ```json5
-    {
-      // Add your islands in this list
-      "islandList": [
-        {
-          // Name label to be shown below the island
-          "name": "Hub",
-          // Path to the island's texture (relative to the folder pack.mcmeta is in
-          "texturePath": "textures/gui/islands/Hub.png",
-          // Grid point to draw the left side of the island at (0-64)
-          // 0 is screen left edge, 32 is screen right edge
-          "gridX": 19,
-          // Grid point to draw the top of the island at (0-36)
-          // 0 is screen top edge, 18 is screen bottom edge
-          "gridY": 19,
-          // Z level to render the button at (0-9)
-          "zLevel": 0,
-          // Island texture width as a percentage of screen width, expressed as a decimal
-          // 0.3 means 30% of screen width and 1 means 100% for example
-          "widthPercentage": 0.3,
-          // Add your warps in this list
-          "warpList": [
-            {
-              // Name label to be shown below the warp
-              "displayName": "Spawn",
-              // Name of the warp as used in the /warp command
-              // The mod will run "/warp {commandName}", or "/warp hub" in this case
-              "commandName": "hub",
-              // Grid point to draw the left side of the warp at relative to the island
-              // The island is divided into 40 grid lines where 0 is the island's left edge and 40 is the right edge
-              "gridX": 29,
-              // Grid point to draw the top of the warp at, also 0-40
-              "gridY": 6,
-              // Don't display the warp name below the warp (optional, false if not provided)
-              "hideDisplayName": false
-            }
-          ]
-        }
-      ],
-      // Warp messages Hypixel sends in chat to indicate warp success/failure
-      // You shouldn't have to change these
-      "warpMessages": {
-        "warpSuccessMessages": [
-          "Warping..."
-        ],
-        "warpFailMessages": {
-          "Unknown destination! Check the Fast Travel menu to view options!": "fancywarpmenu.errors.unknownDestination",
-          "You haven't unlocked this fast travel destination!": "fancywarpmenu.errors.notUnlocked",
-          "Couldn't warp you! Try again later. (NO_DESTINATION_FOUND)": "fancywarpmenu.errors.noDestination",
-          "You need to have visited this island at least once before fast traveling to it!": "fancywarpmenu.errors.notVisited"
-        }
-      },
-      // Details of the texture to use for the warp buttons
-      "warpIcon": {
-        // Path to the warp button texture (relative to the folder pack.mcmeta is in)
-        // Make sure the texture is not offset from image top and image left, no u/v options are configurable here
-        "texturePath": "textures/gui/Portal.png",
-        // Warp button texture width as a percentage of screen width, expressed as a decimal
-        "widthPercentage": 0.02,
-        // Warp button texture height as a percentage of warp button texture width, expressed as a decimal
-        // Calculated by dividing texture height in pixels by texture width in pixels
-        "heightPercentage": 1.2
-      },
-      // Names of the warp command and its variants, used for the reminders feature
-      // You shouldn't have to change these
-      "warpCommandVariants": [
-          "warp",
-          "is",
-          "hub",
-          "warpforge",
-          "savethejerrys"
-      ]
-    }
-    ```
-3. Add your textures at the texture paths you configured above
+1. Create a new repository using the button above and checkout to your IDE. Alternatively, you can download this template using the `<> Code` button above.
+2. Choose a Resource Pack Template
+
+## Custom Layout Pack Template
+Use this template to create a custom layout with custom button positions and/or button textures.
+1. The template is located in `Resource Packs/Custom Layout Pack`. This folder contains the folders and files you'll need to create your pack.
+2. Set up your text editor to use the [layout.schema.json](Schemas/layout.schema.json) schema to provide hints and autocomplete. Here are some links to instructions for common text editors:
+   1. [VSCode](https://code.visualstudio.com/docs/languages/json#_mapping-to-a-schema-in-the-workspace)
+   2. [JetBrains IDEs](https://www.jetbrains.com/help/idea/json.html#ws_json_schema_add_custom)
+   3. [Other Supported Editors](https://json-schema.org/implementations.html#editors)
+   <br>
+   If you don't have any of these text editors, you can look at the contents of `layout.schema.json` or see [layout.json](Resource%20Packs/Custom%20Layout%20Pack/assets/fancywarpmenu/data/layout.json) for an example. 
+3. Edit the options in [layout.json](Resource%20Packs/Custom%20Layout%20Pack/assets/fancywarpmenu/data/layout.json) to your liking.
+4. Add your textures at the texture paths you configured above.
+5. Change the pack description in `pack.mcmeta` and the name of the `Custom Layout Pack` folder to your liking.
+
+## Translation Test Pack Template
+Use this template to check how your translations appear in the mod.
+1. The template is located in `Resource Packs/Translation Test Pack`. This folder contains the folders and files you'll need to create your pack.
+2. Go to the [Crowdin project](https://crowdin.com/project/fancy-warp-menu) and open the translation editor.
+3. Click the `≡` icon in the top left. Then click `Download` to download your translations.
+4. Copy the downloaded file to `Translation Test Pack/assets/fancywarpmenu/lang`
+5. Copy the `Translation Test Pack` folder to your Minecraft resource packs folder and apply the resource pack.
+6. Change your Minecraft language to the language you are working on in Crowdin
+7. Your translations should now show in the Fancy Warp Menu. Check that they appear correctly.
 
 # Testing Your Resource Pack
-1. Enable the developer mode in the mod's settings (accessed via pause game > mod options > Fancy Warp Menu > config)
-2. Go on SkyBlock
-3. Apply your resource pack following the same process for applying a regular Minecraft resource pack
-4. Open the Fancy Warp Menu. You should see borders around the buttons and a text box by your cursor showing the grid points your mouse is hovering over. These will help you position your textures.
-5. Press the `R` key to reload the warp menu textures. The game will freeze for a few seconds as the textures load.
-6. Check if your textures have loaded and are displayed correctly. If they didn't load, close the warp menu and there should be a message in chat telling you what went wrong.
-7. Edit your resource pack, re-apply it, then press `R` again to reload textures.
-8. Check the results and repeat the process until you are satisfied.
+1. Enable the developer mode in the mod's settings at `Fancy Warp Menu > Settings Button (bottom right) > Developer Settings > Enable Developer Features`.
+2. Enable the `Show Debug Overlay` and `Draw Button Borders` settings in the Developer Settings section. 
+   These add borders around the buttons and a text box by your cursor showing the grid points your mouse is hovering over. These will help you position your textures.
+   You cna toggle the debug overlay by pressing `TAB` in the Fancy Warp Menu and toggle the button borders by pressing `B`.
+3. Go on SkyBlock or enable the `Skip SkyBlock Checks` setting in the mod and go to a single player world.
+4. Copy your resource pack folder (e.g. `Custom Layout Pack`) to Minecraft's resource pack folder.
+5. Apply your resource pack following the same process for applying a regular Minecraft resource pack.
+6. Open the Fancy Warp Menu (If you're in single player you'll need to use the hotkey). You should now see your custom layout in the Fancy Warp Menu.
+7. Check if your textures have loaded and are displayed correctly. If they didn't load, close the warp menu and there should be a message in chat telling you what went wrong.
+8. Edit the files in your resource pack as required.
+9. Press the `R` key to reload `layout.json` or `SHIFT + R` to reload `layout.json` and textures. The game will freeze for a few seconds as the textures load.
+10. Check the results and repeat the process until you are satisfied.
 
-# Portal Texture License
-The portal texture located at `Pack/pack.png` is licensed under the following terms:
-
-MIT License
-
-Copyright (c) 2023 Biscuit Development
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+![A screenshot of the Fancy Warp Menu Debug Overlay with button borders enabled](Debug%20Overlay.png)
+_A screenshot of the Fancy Warp Menu Debug Overlay with button borders enabled_
